@@ -1,20 +1,11 @@
-public class Professor {
-    private String nome;
+public class Professor extends Funcionario{
     private int idade;
     private int tempoTrabalho;
 
-    public Professor(String nome, int idade, int tempoTrabalho) {
-        this.nome = nome;
+    public Professor(String nome, int idade, int tempoTrabalho,float salario) {
+        super(nome, salario);
         this.idade = idade;
         this.tempoTrabalho = tempoTrabalho;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public int getIdade() {
