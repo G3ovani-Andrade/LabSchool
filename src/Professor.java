@@ -1,11 +1,9 @@
 public class Professor extends Funcionario{
     private int idade;
-    private int tempoTrabalho;
 
-    public Professor(String nome, int idade, int tempoTrabalho,float salario) {
-        super(nome, salario);
+    public Professor(String nome, int idade, int tempoCargo,float salario) {
+        super(nome, salario, tempoCargo);
         this.idade = idade;
-        this.tempoTrabalho = tempoTrabalho;
     }
 
     public int getIdade() {
@@ -16,11 +14,4 @@ public class Professor extends Funcionario{
         this.idade = idade;
     }
 
-    public int getTempoTrabalho() {
-        return tempoTrabalho;
-    }
-
-    public void setTempoTrabalho(int tempoTrabalho) {
-        this.tempoTrabalho = tempoTrabalho;
-    }
 }
