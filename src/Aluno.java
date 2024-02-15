@@ -1,10 +1,27 @@
 public class Aluno {
     private String nome;
     private int idade;
+    private StatusMatricula statusMatricula;
 
     public Aluno(String nome, int idade) {
         this.nome = nome;
         this.idade = idade;
+        this.statusMatricula = StatusMatricula.ATIVO;
+    }
+
+    public void ativarMatricula(){
+        this.statusMatricula = StatusMatricula.ATIVO;
+        System.out.println("Aluno Ativo");
+    }
+
+    public void trancarMatricula(){
+        this.statusMatricula = StatusMatricula.TRANCADO;
+        System.out.println("Matrícula do aluno trancada");
+    }
+
+    public void formarMatricula(){
+        this.statusMatricula = StatusMatricula.FORMADO;
+        System.out.println("Parabéns! Aluno formado!");
     }
     
     public String getNome() {
