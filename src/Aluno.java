@@ -23,6 +23,13 @@ public class Aluno {
         this.statusMatricula = StatusMatricula.FORMADO;
         System.out.println("Parabéns! Aluno formado!");
     }
+
+    @Override
+    public String toString() {
+        return "Nome: " + nome + "\nIdade: " + idade +
+                "\nStatus da Matricula: " + statusMatricula;
+    }
+
     
     public String getNome() {
         return nome;

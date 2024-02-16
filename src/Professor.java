@@ -6,6 +6,11 @@ public class Professor extends Funcionario{
         this.idade = idade;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "\nIdade: " + idade + " anos";
+    }
+
     public int getIdade() {
         return idade;
     }

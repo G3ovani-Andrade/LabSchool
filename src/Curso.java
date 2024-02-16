@@ -7,6 +7,11 @@ public class Curso {
         this.professorCurso = professorCurso;
     }
 
+    @Override
+    public String toString() {
+        return "Nome do Curso: " + nomeCurso + "\nProfessor do Curso: " + professorCurso;
+    }
+
     public Curso(String nomeCurso) {
         this.nomeCurso = nomeCurso;
     }
