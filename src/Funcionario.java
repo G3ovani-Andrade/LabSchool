@@ -29,6 +29,13 @@ public class Funcionario implements IFuncionario{
 
     }
 
+    @Override
+    public String toString() {
+        return "Função: " + this.getClass().toString().substring(6) + "\nNome: " + nome + "\nSalário: " + salario + "\nTempo de Cargo: " + tempoCargo + " anos" +
+                "\nSenioridade: " + cargo;
+    }
+
+
     public String getNome() {
         return nome;
     }
