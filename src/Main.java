@@ -1,9 +1,13 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
+        DadosProfessor d = new DadosProfessor();
 
-
-
+        d.criarProfessor(scanner);
+        d.removerProfessor(scanner);
     }
 }
 
