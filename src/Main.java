@@ -3,61 +3,106 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        DadosAluno dadosAlunos = new DadosAluno();
-        DadosProfessor dadosProfessores = new DadosProfessor();
-        DadosDiretor dadosDiretor = new DadosDiretor();
-
+        DadosAluno dadosAlunos = new DadosAluno(scanner);
+        DadosProfessor dadosProfessores = new DadosProfessor(scanner);
+        DadosDiretor dadosDiretor = new DadosDiretor(scanner);
+        //Colocar loop
         System.out.print("""
-                                    
-                    Menu Inicial
-                    -----------------------------
-                    1 - Funcionário
-                    2 - Aluno
-                    0 - Sair
-                    Digite o tipo do usuário:\s""");
+                                
+                Menu Inicial
+                -----------------------------
+                1 - Funcionário
+                2 - Aluno
+                0 - Sair
+                Escolha o tipo do usuário:\s""");
         int tipoUsuario = scanner.nextInt();
         switch (tipoUsuario) {
             case 1:
                 System.out.print("""
-                                    
-                    Menu Inicial
-                    -----------------------------
-                    1 - Login
-                    2 - Cadastro
-                    0 - Sair
-                    Digite opção desejado:\s""");
+                                        
+                        Menu Entrada
+                        -----------------------------
+                        1 - Login
+                        2 - Cadastro
+                        0 - Voltar Menu Inicial
+                        Escolha opção desejado:\s""");
                 switch (scanner.nextInt()) {
                     case 1:
-                        //Abstrair para classe
-//                        System.out.print("""
-//
-//                        Menu Login
-//                        -----------------------------
-//                        Digite nome do usuário:\s""");
-//                        String nomeLogin = scanner.next();
+                        System.out.print("""
+
+                                Menu Tipo Funcionário
+                                -----------------------------
+                                1 - Diretor
+                                2 - Professor
+                                0 - Voltar Menu Inicial
+                                Escolha o tipo funcionário:\s""");
+                        int tipoFuncionario = scanner.nextInt();
+                        if (tipoFuncionario == 1) {
+                            boolean retornoLogin = dadosDiretor.loginDiretor();
+                            if (retornoLogin) {
+                                LOOPMENUDIRETOR:
+                                while (true) {
+                                    System.out.print("""
+
+                                            Menu Diretor
+                                            -----------------------------
+                                            1 - Adicionar
+                                            2 - Remover
+                                            3 - Listar
+                                            4 - Promover Professor
+                                            0 - Voltar Menu Inicial
+                                            Escolha a operação desejada:\s""");
+                                    switch (scanner.nextInt()) {
+                                        case 1:
+                                            //adicionar
+                                        case 0:
+                                            break LOOPMENUDIRETOR;
+                                    }
+                                }
+                            }
+                        } else if (tipoFuncionario == 2) {
+                            boolean retornoLogin = dadosProfessores.loginProfessor();
+                            if (retornoLogin) {
+                                LOOPMENUPROFESSOR:
+                                while (true) {
+                                    System.out.print("""
+
+                                            Menu Professor
+                                            -----------------------------
+                                            1 - Adicionar Aluno a Turma
+                                            2 - Remover Aluno da Turma
+                                            3 - Listar Alunos
+                                            0 - Voltar Menu Inicial
+                                            Escolha a operação desejada:\s""");
+                                    switch (scanner.nextInt()) {
+                                        case 1:
+                                            //adicionar
+                                        case 0:
+                                            break LOOPMENUPROFESSOR;
+                                    }
+                                }
+                            }
+                        }
                         break;
                     case 2:
-                        //Abstrair para classe
-//                        System.out.print("""
-//
-//                        Menu Cadastro
-//                        -----------------------------
-//                        Digite nome do usuário:\s""");
-//                        String nomeCadastro = scanner.next();
-//                        System.out.print("Digite o salário do usuário: ");
-//                        float salarioCadastro = scanner.nextFloat();
-//                        System.out.print("Digite o tempo de cargo do usuário: ");
-//                        int tempoCargoCadastro = scanner.nextInt();
-//                        System.out.print("""
-//
-//                        1 - INICIANTE
-//                        2 - EXPERIENTE
-//                        3 - AVANÇADO
-//                        Digite o cargo do usuário:\s""");
-//                        CargoFuncionario cargoCadastro = CargoFuncionario.values()[scanner.nextInt()-1];
+                        System.out.print("""
+
+                                Menu Tipo Funcionário
+                                -----------------------------
+                                1 - Diretor
+                                2 - Professor
+                                0 - Voltar Menu Inicial
+                                Escolha o tipo funcionário:\s""");
+                        int tipoFuncionarioCadastro = scanner.nextInt();
+                        if (tipoFuncionarioCadastro == 1) {
+                            dadosDiretor.criarDiretor();
+                        } else if (tipoFuncionarioCadastro == 2) {
+                            dadosProfessores.criarProfessor();
+                        }
                         break;
                     case 0:
-                        System.out.println("Sistema encerrado.");
+                        System.out.println("Voltando ao menu inicial.");
+
                         break;
                     default:
                         System.out.println("\u001B[31m" + "Opção inválida!" + "\u001B[0m");
@@ -66,22 +111,43 @@ public class Main {
                 break;
             case 2:
                 System.out.print("""
-                                    
-                    Menu Inicial
-                    -----------------------------
-                    1 - Login
-                    2 - Cadastro
-                    0 - Sair
-                    Digite opção desejado:\s""");
+                                        
+                        Menu Entrada
+                        -----------------------------
+                        1 - Login
+                        2 - Cadastro
+                        0 - Voltar Menu Inicial
+                        Escolha opção desejado:\s""");
                 switch (scanner.nextInt()) {
                     case 1:
-                        //Aluno login
+                        boolean retornoLoginAluno = dadosAlunos.loginAluno();
+                        if (retornoLoginAluno) {
+                            LOOPMENUALUNO:
+                            while (true) {
+                                System.out.print("""
+
+                                            Menu Aluno
+                                            -----------------------------
+                                            1 - Listar Cursos
+                                            2 - Ativar Matrícula
+                                            3 - Trancar Matrícula
+                                            4 - Entrar Turma
+                                            0 - Voltar Menu Inicial
+                                            Escolha a operação desejada:\s""");
+                                switch (scanner.nextInt()) {
+                                    case 1:
+                                        //adicionar
+                                    case 0:
+                                        break LOOPMENUALUNO;
+                                }
+                            }
+                        }
                         break;
                     case 2:
-                        //Aluno cadastro
+                        dadosAlunos.criarAluno();
                         break;
                     case 0:
-                        //Sair
+                        System.out.println("Voltando ao menu inicial.");
                         break;
                     default:
                         System.out.println("\u001B[31m" + "Opção inválida!" + "\u001B[0m");

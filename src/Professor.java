@@ -7,7 +7,7 @@ public class Professor extends Funcionario{
     }
 
     public Professor(String nome, int idade) {
-        super(nome);
+        super(nome, 2886.24f);
         this.idade = idade;
     }
 

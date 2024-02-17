@@ -2,31 +2,34 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DadosAluno {
-    private ArrayList<Aluno> aluno = new ArrayList<>();
+    private Scanner scanner;
+    private ArrayList<Aluno> alunos = new ArrayList<>();
 
-    public void adicionarAluno(Aluno aluno) {
-        this.aluno.add(aluno);
+    public DadosAluno(Scanner scanner) {
+        this.scanner = scanner;
     }
 
-    public void removerAluno(Scanner scanner) {
-        int escolha = listarEscolherAluno(scanner);
-        this.aluno.remove(aluno.get(escolha));
+    public void adicionarAluno(Aluno aluno) {
+        this.alunos.add(aluno);
+    }
+
+    public void removerAluno() {
+        int escolha = listarEscolherAluno();
+        this.alunos.remove(alunos.get(escolha));
     }
 
     public void listarAluno() {
-        for (int i = 1; i <= aluno.size(); i++) {
-            System.out.println(i + " - " + aluno.get(i - 1).getNome());
+        for (Aluno aluno : alunos) {
+            System.out.println(alunos.indexOf(aluno) + " - " + aluno.getNome());
         }
     }
-    public int listarEscolherAluno(Scanner scanner) {
-        for (int i = 1; i <= aluno.size(); i++) {
-            System.out.println(i + " - " + aluno.get(i - 1).getNome());
-        }
+    public int listarEscolherAluno() {
+        listarAluno();
         System.out.print("Escolha uma opção: ");
-        int escolha = Integer.parseInt(scanner.nextLine());
-        return escolha - 1;
+        int escolha = scanner.nextInt();
+        return escolha;
     }
-    public void criarAluno(Scanner scanner) {
+    public void criarAluno() {
         System.out.println("Criar conta de aluno:");
         System.out.print  ("Nome: ");
         String nome = scanner.nextLine();
@@ -37,11 +40,27 @@ public class DadosAluno {
         adicionarAluno(new Aluno(nome,idade));
     }
 
+    public boolean loginAluno() {
+        for (int i = 0; i < 2; i++) {
+            System.out.print("Digite o nome do aluno:");
+            String nomeAluno = scanner.next();
+            boolean alunoEncotrado = alunos.stream().anyMatch(aluno -> aluno.getNome().equals(nomeAluno));
+            if (alunoEncotrado) {
+                System.out.println("Bem-vindo " + nomeAluno);
+                return true;
+            } else {
+                System.out.println("Aluno não encontrado!");
+            }
+        }
+        System.out.println("Limite de tentativas excedido! Voltando ao menu inicial.");
+        return false;
+    }
+
     public ArrayList<Aluno> getAluno() {
-        return aluno;
+        return alunos;
     }
 
     public void setAluno(ArrayList<Aluno> aluno) {
-        this.aluno = aluno;
+        this.alunos = aluno;
     }
 }

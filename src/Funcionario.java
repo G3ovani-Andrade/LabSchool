@@ -10,9 +10,10 @@ public class Funcionario implements IFuncionario{
         this.tempoCargo = tempoCargo;
         this.cargo = CargoFuncionario.INICIANTE;
     }
-    public Funcionario(String nome) {
+    public Funcionario(String nome , float salario) {
         this.tempoCargo = 0;
         this.nome = nome;
+        this.salario = salario;
         this.cargo = CargoFuncionario.INICIANTE;
     }
 

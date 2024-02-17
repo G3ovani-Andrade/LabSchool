@@ -2,31 +2,34 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DadosProfessor {
-    private ArrayList<Professor> professor = new ArrayList<>();
+    private Scanner scanner;
+    private ArrayList<Professor> professores = new ArrayList<>();
 
-    public void adicionarProfessor(Professor professor) {
-        this.professor.add(professor);
+    public DadosProfessor(Scanner scanner) {
+        this.scanner = scanner;
     }
 
-    public void removerProfessor(Scanner scanner) {
-        int escolha = listarEscolherProfessor(scanner);
-        this.professor.remove(professor.get(escolha));
+    public void adicionarProfessor(Professor professor) {
+        this.professores.add(professor);
+    }
+
+    public void removerProfessor() {
+        int escolha = listarEscolherProfessor();
+        this.professores.remove(professores.get(escolha));
     }
 
     public void listarProfessor() {
-        for (int i = 1; i <= professor.size(); i++) {
-            System.out.println(i + " - " + professor.get(i - 1).getNome());
+        for (Professor professor : professores) {
+            System.out.println(professores.indexOf(professor) + " - " + professor.getNome());
         }
     }
-    public int listarEscolherProfessor(Scanner scanner) {
-        for (int i = 1; i <= professor.size(); i++) {
-            System.out.println(i + " - " + professor.get(i - 1).getNome());
-        }
+    public int listarEscolherProfessor() {
+        listarProfessor();
         System.out.print("Escolha uma opção: ");
-        int escolha = Integer.parseInt(scanner.nextLine());
-        return escolha - 1;
+        int escolha = scanner.nextInt();
+        return escolha;
     }
-    public void criarProfessor(Scanner scanner) {
+    public void criarProfessor() {
         System.out.println("Criar conta de professor:");
         System.out.print  ("Nome: ");
         String nome = scanner.nextLine();
@@ -37,11 +40,27 @@ public class DadosProfessor {
         adicionarProfessor(new Professor(nome, idade));
     }
 
+    public boolean loginProfessor() {
+        for (int i = 0; i < 2; i++) {
+            System.out.print("Digite o nome do Professor:");
+            String nomeProfessor = scanner.next();
+            boolean professorEncotrado = professores.stream().anyMatch(professor -> professor.getNome().equals(nomeProfessor));
+            if (professorEncotrado) {
+                System.out.println("Bem-vindo " + nomeProfessor);
+                return true;
+            } else {
+                System.out.println("Professor não encontrado!");
+            }
+        }
+        System.out.println("Limite de tentativas excedido! Voltando ao menu inicial.");
+        return false;
+    }
+
     public ArrayList<Professor> getProfessor() {
-        return professor;
+        return professores;
     }
 
     public void setProfessor(ArrayList<Professor> professor) {
-        this.professor = professor;
+        this.professores = professor;
     }
 }

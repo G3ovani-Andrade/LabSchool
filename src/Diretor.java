@@ -4,8 +4,8 @@ public class Diretor extends Funcionario{
 
         super(nome, salario, tempoCargo);
     }
-    public Diretor( String nome) {
-        super(nome);
+    public Diretor(String nome) {
+        super(nome, 3210.00f);
     }
 
 
