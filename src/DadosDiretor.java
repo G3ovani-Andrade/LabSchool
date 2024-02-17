@@ -2,45 +2,65 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DadosDiretor {
+    private Scanner scanner;
+    private ArrayList<Diretor> diretores = new ArrayList<>();
 
-    private ArrayList<Diretor> diretor = new ArrayList<>();
-
-    public void adicionarDiretor(Diretor diretor) {
-        this.diretor.add(diretor);
+    public DadosDiretor(Scanner scanner) {
+        this.scanner = scanner;
     }
 
-    public void removerDiretor(Scanner scanner) {
-        int escolha = listarEscolherDiretor(scanner);
-        this.diretor.remove(diretor.get(escolha));
+    public void adicionarDiretor(Diretor diretor) {
+        this.diretores.add(diretor);
+    }
+
+    public void removerDiretor() {
+        int escolha = listarEscolherDiretor();
+        this.diretores.remove(diretores.get(escolha));
     }
 
     public void listarDiretor() {
-        for (int i = 1; i <= diretor.size(); i++) {
-            System.out.println(i + " - " + diretor.get(i - 1).getNome());
+        for (Diretor diretor : diretores) {
+            System.out.println(diretores.indexOf(diretor) + " - " + diretor.getNome());
         }
     }
-    public int listarEscolherDiretor(Scanner scanner) {
-        for (int i = 1; i <= diretor.size(); i++) {
-            System.out.println(i + " - " + diretor.get(i - 1).getNome());
-        }
+
+    public int listarEscolherDiretor() {
+        listarDiretor();
         System.out.print("Escolha uma opção: ");
-        int escolha = Integer.parseInt(scanner.nextLine());
-        return escolha - 1;
+        int escolha = scanner.nextInt();
+        return escolha;
     }
-    public void criarProfessor(Scanner scanner) {
+
+    public void criarDiretor() {
         System.out.println("Criar conta de diretor:");
-        System.out.print  ("Nome: ");
+        System.out.print("Nome: ");
         String nome = scanner.nextLine();
         System.out.println("Novo diretor criado");
 
         adicionarDiretor(new Diretor(nome));
     }
 
+    public boolean loginDiretor() {
+        for (int i = 0; i < 2; i++) {
+            System.out.print("Digite o nome do Diretor:");
+            String nomeDiretor = scanner.next();
+            boolean diretorEncotrado = diretores.stream().anyMatch(diretor -> diretor.getNome().equals(nomeDiretor));
+            if (diretorEncotrado) {
+                System.out.println("Bem-vindo " + nomeDiretor);
+                return true;
+            } else {
+                System.out.println("Diretor não encontrado!");
+            }
+        }
+        System.out.println("Limite de tentativas excedido! Voltando ao menu inicial.");
+        return false;
+    }
+
     public ArrayList<Diretor> getDiretor() {
-        return diretor;
+        return diretores;
     }
 
     public void setDiretor(ArrayList<Diretor> diretor) {
-        this.diretor = diretor;
+        this.diretores = diretor;
     }
 }
