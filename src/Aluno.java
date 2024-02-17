@@ -3,6 +3,8 @@ public class Aluno {
     private int idade;
     private StatusMatricula statusMatricula;
 
+    public Aluno() {
+    }
     public Aluno(String nome, int idade) {
         this.nome = nome;
         this.idade = idade;

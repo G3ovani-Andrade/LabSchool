@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class DadosAluno {
@@ -40,20 +41,25 @@ public class DadosAluno {
         adicionarAluno(new Aluno(nome,idade));
     }
 
-    public boolean loginAluno() {
+    public Aluno loginAluno() {
         for (int i = 0; i < 2; i++) {
+            Aluno existeAluno = new Aluno();
             System.out.print("Digite o nome do aluno:");
             String nomeAluno = scanner.next();
-            boolean alunoEncotrado = alunos.stream().anyMatch(aluno -> aluno.getNome().equals(nomeAluno));
-            if (alunoEncotrado) {
+            for (Aluno aluno : alunos){
+                if (aluno.getNome().equals(nomeAluno)) {
+                    existeAluno = aluno;
+                }
+            }
+            if (existeAluno.getNome().isEmpty()) {
                 System.out.println("Bem-vindo " + nomeAluno);
-                return true;
+                return existeAluno;
             } else {
                 System.out.println("Aluno não encontrado!");
             }
         }
         System.out.println("Limite de tentativas excedido! Voltando ao menu inicial.");
-        return false;
+        return null;
     }
 
     public ArrayList<Aluno> getAluno() {

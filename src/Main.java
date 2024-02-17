@@ -54,7 +54,31 @@ public class Main {
                                             Escolha a operação desejada:\s""");
                                     switch (scanner.nextInt()) {
                                         case 1:
-                                            //adicionar
+                                            //menuAdicionar() - Gabriela
+                                            //adicionar professor
+                                            //adicionar aluno
+                                            //adicionar curso
+                                            //adicionar turma
+                                            //adicionar diretor
+                                            break;
+                                        case 2:
+                                            //menuRemover() - Su
+                                            //remover professor
+                                            //remover aluno
+                                            //remover curso
+                                            //remover turma
+                                            //remover diretor
+                                            break;
+                                        case 3:
+                                            //menuListar() - Arthur
+                                            //listar professor
+                                            //listar aluno
+                                            //listar curso
+                                            //listar turma
+                                            //listar diretor
+                                            break;
+                                        case 4:
+                                            //promover(); - Arthur
                                         case 0:
                                             break LOOPMENUDIRETOR;
                                     }
@@ -76,7 +100,14 @@ public class Main {
                                             Escolha a operação desejada:\s""");
                                     switch (scanner.nextInt()) {
                                         case 1:
-                                            //adicionar
+                                            //adicionar aluno turma - Gabriela
+                                            break;
+                                        case 2:
+                                            //remover aluno turma - Su
+                                            break;
+                                        case 3:
+                                            //listar alunos - Arthur
+                                            break;
                                         case 0:
                                             break LOOPMENUPROFESSOR;
                                     }
@@ -102,7 +133,6 @@ public class Main {
                         break;
                     case 0:
                         System.out.println("Voltando ao menu inicial.");
-
                         break;
                     default:
                         System.out.println("\u001B[31m" + "Opção inválida!" + "\u001B[0m");
@@ -120,8 +150,8 @@ public class Main {
                         Escolha opção desejado:\s""");
                 switch (scanner.nextInt()) {
                     case 1:
-                        boolean retornoLoginAluno = dadosAlunos.loginAluno();
-                        if (retornoLoginAluno) {
+                        Aluno alunoLogado = dadosAlunos.loginAluno();
+                        if (alunoLogado.getNome().isEmpty()) {
                             LOOPMENUALUNO:
                             while (true) {
                                 System.out.print("""
@@ -136,7 +166,17 @@ public class Main {
                                             Escolha a operação desejada:\s""");
                                 switch (scanner.nextInt()) {
                                     case 1:
-                                        //adicionar
+                                        //listar cursos - Arthur
+                                        break;
+                                    case 2:
+                                        //ativar matricula - Geovani
+                                        break;
+                                    case 3:
+                                        //trancar matricula - Geovani
+                                        break;
+                                    case 4:
+                                        //entrar turma - Gabriela
+                                        break;
                                     case 0:
                                         break LOOPMENUALUNO;
                                 }
