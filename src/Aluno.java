@@ -12,19 +12,36 @@ public class Aluno {
     }
 
     public void ativarMatricula(){
-        this.statusMatricula = StatusMatricula.ATIVO;
-        System.out.println("Aluno Ativo");
+    	if(this.statusMatricula.equals( StatusMatricula.ATIVO )) {
+    		System.out.println( "Aluno já está com a matricula Ativa!" );		
+    	}else if(this.statusMatricula.equals( StatusMatricula.FORMADO )){
+    		System.out.println( "Aluno já formado! matricula não pode ser alterada!" );
+    	}else {
+    		this.statusMatricula = StatusMatricula.ATIVO;
+    		System.out.println("Aluno Ativo");    		
+    	}
     }
 
     public void trancarMatricula(){
-        this.statusMatricula = StatusMatricula.TRANCADO;
-        System.out.println("Matrícula do aluno trancada");
+    	if( this.statusMatricula.equals( StatusMatricula.TRANCADO )) {
+    		System.out.println( "Aluno já está com a matricula Trancada!" );		
+    	}else if(this.statusMatricula.equals( StatusMatricula.FORMADO )){
+    		System.out.println( "Aluno já formado! matricula não pode ser alterada!" );
+    	}else {
+    		this.statusMatricula = StatusMatricula.TRANCADO;
+            System.out.println("Matrícula do aluno trancada");
+    	}
     }
 
     public void formarMatricula(){
-        this.statusMatricula = StatusMatricula.FORMADO;
-        System.out.println("Parabéns! Aluno formado!");
+    	if(this.statusMatricula.equals( StatusMatricula.FORMADO)){
+    		System.out.println( "Aluno já esta formado!" );
+    	}else {
+    		this.statusMatricula = StatusMatricula.FORMADO;
+            System.out.println("Parabéns! Aluno formado!");
+    	}
     }
+
 
     @Override
     public String toString() {

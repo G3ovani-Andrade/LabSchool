@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
@@ -7,7 +6,8 @@ public class Main {
         DadosAluno dadosAlunos = new DadosAluno(scanner);
         DadosProfessor dadosProfessores = new DadosProfessor(scanner);
         DadosDiretor dadosDiretor = new DadosDiretor(scanner);
-
+        //TODO pode apagar apenas teste
+        DadosAluno.adicionarAluno();
         //Colocar loop
         System.out.print("""
                                 

@@ -3,8 +3,14 @@ import java.util.Scanner;
 
 public class DadosAluno {
     private Scanner scanner;
-    private ArrayList<Aluno> alunos = new ArrayList<>();
- 
+    public static ArrayList<Aluno> alunos = new ArrayList<>();
+    
+    //TODO pode apagar apenas teste
+    public static void adicionarAluno(  )
+	{
+		alunos.add( new Aluno("geovani",32) );
+	}
+    
     public DadosAluno(Scanner scanner) {
         this.scanner = scanner;
     }
