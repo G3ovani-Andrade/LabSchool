@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class DadosAluno {
     private Scanner scanner;
+    //TODO quando terinar os testes mudar de public static para private
     public static ArrayList<Aluno> alunos = new ArrayList<>();
     
     //TODO pode apagar apenas teste
