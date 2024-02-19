@@ -1,11 +1,17 @@
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.Scanner;
 
 public class DadosAluno {
     private Scanner scanner;
-    private ArrayList<Aluno> alunos = new ArrayList<>();
-
+    //TODO quando terinar os testes mudar de public static para private
+    public static ArrayList<Aluno> alunos = new ArrayList<>();
+    
+    //TODO pode apagar apenas teste
+    public static void adicionarAluno(  )
+	{
+		alunos.add( new Aluno("geovani",32) );
+	}
+    
     public DadosAluno(Scanner scanner) {
         this.scanner = scanner;
     }
@@ -42,8 +48,8 @@ public class DadosAluno {
     }
 
     public Aluno loginAluno() {
-        for (int i = 0; i < 2; i++) {
-            Aluno existeAluno = new Aluno();
+        for (int i = 0; i <= 2; i++) {
+            Aluno existeAluno = null;
             System.out.print("Digite o nome do aluno:");
             String nomeAluno = scanner.next();
             for (Aluno aluno : alunos){
@@ -51,7 +57,7 @@ public class DadosAluno {
                     existeAluno = aluno;
                 }
             }
-            if (existeAluno.getNome().isEmpty()) {
+            if (existeAluno != null) {
                 System.out.println("Bem-vindo " + nomeAluno);
                 return existeAluno;
             } else {

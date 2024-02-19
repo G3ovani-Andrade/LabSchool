@@ -6,6 +6,8 @@ public class Main {
         DadosAluno dadosAlunos = new DadosAluno(scanner);
         DadosProfessor dadosProfessores = new DadosProfessor(scanner);
         DadosDiretor dadosDiretor = new DadosDiretor(scanner);
+        //TODO pode apagar apenas teste
+        DadosAluno.adicionarAluno();
         //Colocar loop
         System.out.print("""
                                 
@@ -151,7 +153,7 @@ public class Main {
                 switch (scanner.nextInt()) {
                     case 1:
                         Aluno alunoLogado = dadosAlunos.loginAluno();
-                        if (alunoLogado.getNome().isEmpty()) {
+                        if (alunoLogado != null) {
                             LOOPMENUALUNO:
                             while (true) {
                                 System.out.print("""
@@ -169,10 +171,10 @@ public class Main {
                                         //listar cursos - Arthur
                                         break;
                                     case 2:
-                                        //ativar matricula - Geovani
+                                    	alunoLogado.ativarMatricula();
                                         break;
                                     case 3:
-                                        //trancar matricula - Geovani
+                                    	alunoLogado.trancarMatricula();
                                         break;
                                     case 4:
                                         //entrar turma - Gabriela
