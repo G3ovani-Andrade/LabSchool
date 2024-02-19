@@ -5,11 +5,15 @@ public class DadosProfessor {
     private Scanner scanner;
     private ArrayList<Professor> professores = new ArrayList<>();
 
+    public DadosProfessor() {
+    }
+
     public DadosProfessor(Scanner scanner) {
         this.scanner = scanner;
     }
 
     public void adicionarProfessor(Professor professor) {
+
         this.professores.add(professor);
     }
 
