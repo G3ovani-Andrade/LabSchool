@@ -64,12 +64,35 @@ public class Main {
                                             //adicionar diretor
                                             break;
                                         case 2:
-                                            //menuRemover() - Su
-                                            //remover professor
-                                            //remover aluno
-                                            //remover curso
-                                            //remover turma
-                                            //remover diretor
+                                            System.out.print("""
+
+                                            Menu Remover
+                                            -----------------------------
+                                            1 - Remover Professores
+                                            2 - Remover Alunos
+                                            3 - Remover Cursos
+                                            4 - Remover Turmas
+                                            5 - Remover Diretores
+                                            Escolha a operação desejada:\s""");
+                                            switch (ScannerUtil.nextInt()) {
+                                                case 1:
+                                                    dadosProfessores.removerProfessor();
+                                                    break;
+                                                case 2:
+                                                    dadosAlunos.removerAluno();
+                                                    break;
+                                                case 3:
+                                                    dadosCursos.removerCurso();
+                                                    break;
+                                                case 4:
+                                                    dadosTurmas.removerTurma();
+                                                    break;
+                                                case 5:
+                                                    dadosDiretor.removerDiretor();
+                                                    break;
+                                                default:
+                                                    System.out.println("Opção invalida");
+                                            }
                                             break;
                                         case 3:
                                             System.out.print("""
@@ -128,7 +151,7 @@ public class Main {
                                             //adicionar aluno turma - Gabriela
                                             break;
                                         case 2:
-                                            //remover aluno turma - Su
+                                            dadosAlunos.removerAlunoTurma();
                                             break;
                                         case 3:
                                             dadosAlunos.listarAluno();
