@@ -20,8 +20,10 @@ public class Funcionario implements IFuncionario{
     @Override
     public void promover() {
         if (this.cargo == CargoFuncionario.valueOf("INICIANTE")){
+            System.out.println(this.getClass().toString().substring(6) + " promovido de iniciante para experiente");
             this.cargo = CargoFuncionario.EXPERIENTE;
         } else if (this.cargo == CargoFuncionario.valueOf("EXPERIENTE")) {
+            System.out.println(this.getClass().toString().substring(6) + " promovido de experiente para avançado");
             this.cargo = CargoFuncionario.AVANÇADO;
         } else{
             System.out.println("O funcionário ja é avançado!");
