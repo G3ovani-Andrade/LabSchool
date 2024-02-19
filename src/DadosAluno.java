@@ -14,6 +14,7 @@ public class DadosAluno {
         this.alunos.add(aluno);
     }
 
+
     public void removerAluno() {
         int escolha = listarEscolherAluno();
         this.alunos.remove(alunos.get(escolha));
@@ -60,6 +61,9 @@ public class DadosAluno {
         }
         System.out.println("Limite de tentativas excedido! Voltando ao menu inicial.");
         return null;
+    }
+
+    public DadosAluno() {
     }
 
     public ArrayList<Aluno> getAluno() {

@@ -16,6 +16,9 @@ public class Turma {
     public Turma() {
     }
 
+    public Turma(String nomeTurma) {
+    }
+
     @Override
     public String toString() {
         return "Nome da Turma: " + nomeTurma + "\nListaAlunos: " + listaAlunos + "\nAno: " + ano + "\nCurso: " + curso;
