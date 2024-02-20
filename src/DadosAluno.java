@@ -20,6 +20,14 @@ public class DadosAluno {
         this.alunos.remove(alunos.get(escolha));
     }
 
+
+    //Criei com o objetivo de que remover o aluno apenas da turma é diferente de remover o aluno total
+    public void removerAlunoTurma() {
+        int escolha = listarEscolherAlunoTurma();
+        this.alunos.remove(alunos.get(escolha));
+    }
+
+
     public void listarAluno() {
         for (Aluno aluno : alunos) {
             System.out.println(alunos.indexOf(aluno) + " - " + aluno.getNome());
@@ -31,6 +39,21 @@ public class DadosAluno {
         int escolha = scanner.nextInt();
         return escolha;
     }
+
+
+    //Criei com o objetivo de que remover o aluno apenas da turma é diferente de remover o aluno total
+    public void listarAlunoTurma() {
+        for (Aluno aluno : alunos) {
+            System.out.println(alunos.indexOf(aluno) + " - " + aluno.getNome());
+        }
+    }
+    public int listarEscolherAlunoTurma() {
+        listarAlunoTurma();
+        System.out.print("Escolha uma opção: ");
+        int escolha = scanner.nextInt();
+        return escolha;
+    }
+
     public void criarAluno() {
         System.out.println("Criar conta de aluno:");
         System.out.print  ("Nome: ");

@@ -9,10 +9,22 @@ public class DadosCurso {
         this.scanner = scanner;
     }
 
+    public void removerCurso() {
+        int escolha = listarEscolherCurso();
+        this.cursos.remove(cursos.get(escolha));
+    }
+
     public void listarCursos() {
         for (Curso curso : cursos) {
             System.out.println(cursos.indexOf(curso) + " - " + curso.getNomeCurso());
         }
+    }
+
+    public int listarEscolherCurso() {
+        listarCursos();
+        System.out.print("Escolha uma opção: ");
+        int escolha = scanner.nextInt();
+        return escolha;
     }
 
     public void adicionarCurso(Curso nomeCurso) {
