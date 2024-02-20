@@ -56,11 +56,14 @@ public class DadosDiretor {
         return false;
     }
 
-    public ArrayList<Diretor> getDiretor() {
+    public ArrayList<Diretor> getDiretores() {
         return diretores;
     }
 
-    public void setDiretor(ArrayList<Diretor> diretor) {
-        this.diretores = diretor;
+    public void setDiretor(ArrayList<Diretor> diretores) {
+        this.diretores = diretores;
     }
 }
+
+
+

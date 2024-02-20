@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+
         Scanner scanner = new Scanner(System.in);
         DadosTurma dadosTurmas = new DadosTurma(scanner);
         DadosCurso dadosCursos = new DadosCurso(scanner);
@@ -10,7 +12,7 @@ public class Main {
         DadosDiretor dadosDiretor = new DadosDiretor(scanner);
         //Colocar loop
         System.out.print("""
-                                
+
                 Menu Inicial
                 -----------------------------
                 1 - Funcionário
@@ -21,7 +23,7 @@ public class Main {
         switch (tipoUsuario) {
             case 1:
                 System.out.print("""
-                                        
+
                         Menu Entrada
                         -----------------------------
                         1 - Login
@@ -56,12 +58,40 @@ public class Main {
                                             Escolha a operação desejada:\s""");
                                     switch (scanner.nextInt()) {
                                         case 1:
-                                            //menuAdicionar() - Gabriela
-                                            //adicionar professor
-                                            //adicionar aluno
-                                            //adicionar curso
-                                            //adicionar turma
-                                            //adicionar diretor
+                                            while (true) {
+                                                System.out.println("""
+                                                        -----------------------------
+                                                        Menu adicionar:
+                                                        1 - Adicionar Professor
+                                                        2 - Adicionar Aluno                        
+                                                        3 - Adicionar Curso
+                                                        4 - Adicionar Turma
+                                                        5 - Adicionar Diretor 
+                                                        0 - Voltar Menu Inicial
+                                                        Escolha opção desejada:                                                       
+                                                        \s""");
+                                                switch (ScannerUtil.nextInt()) {
+                                                    case 1:
+                                                        dadosProfessores.criarProfessor();
+                                                        break;
+                                                    case 2:
+                                                        dadosAlunos.criarAluno();
+                                                        break;
+                                                    case 3:
+                                                        dadosCursos.criarCurso();
+                                                        break;
+                                                    case 4:
+                                                        dadosTurmas.criarTurma();
+                                                        break;
+                                                    case 5:
+                                                        dadosDiretor.criarDiretor();
+                                                        break;
+                                                    case 0:
+                                                        break LOOPMENUDIRETOR;
+                                                    default:
+                                                        System.out.println("Opção invalida");
+                                                }
+                                            }
                                             break;
                                         case 2:
                                             System.out.print("""
@@ -97,14 +127,14 @@ public class Main {
                                         case 3:
                                             System.out.print("""
 
-                                            Menu Listar
-                                            -----------------------------
-                                            1 - Listar Professores
-                                            2 - Listar Diretores
-                                            3 - Listar Alunos
-                                            4 - Listar Cursos
-                                            5 - Listar Turmas
-                                            Escolha a operação desejada:\s""");
+                                                    Menu Listar
+                                                    -----------------------------
+                                                    1 - Listar Professores
+                                                    2 - Listar Diretores
+                                                    3 - Listar Alunos
+                                                    4 - Listar Cursos
+                                                    5 - Listar Turmas
+                                                    Escolha a operação desejada:\s""");
                                             switch (ScannerUtil.nextInt()) {
                                                 case 1:
                                                     dadosProfessores.listarProfessor();
@@ -125,8 +155,9 @@ public class Main {
                                                     System.out.println("Opção invalida");
                                             }
                                             break;
+
                                         case 4:
-                                            dadosDiretor.getDiretor().get(0).promoverProfessor(dadosProfessores);
+                                            dadosDiretor.getDiretores().get(0).promoverProfessor(dadosProfessores);
                                         case 0:
                                             break LOOPMENUDIRETOR;
                                     }
@@ -148,7 +179,7 @@ public class Main {
                                             Escolha a operação desejada:\s""");
                                     switch (scanner.nextInt()) {
                                         case 1:
-                                            //adicionar aluno turma - Gabriela
+                                            dadosAlunos.criarAluno();
                                             break;
                                         case 2:
                                             dadosAlunos.removerAlunoTurma();
@@ -189,7 +220,7 @@ public class Main {
                 break;
             case 2:
                 System.out.print("""
-                                        
+
                         Menu Entrada
                         -----------------------------
                         1 - Login
@@ -204,14 +235,14 @@ public class Main {
                             while (true) {
                                 System.out.print("""
 
-                                            Menu Aluno
-                                            -----------------------------
-                                            1 - Listar Cursos
-                                            2 - Ativar Matrícula
-                                            3 - Trancar Matrícula
-                                            4 - Entrar Turma
-                                            0 - Voltar Menu Inicial
-                                            Escolha a operação desejada:\s""");
+                                        Menu Aluno
+                                        -----------------------------
+                                        1 - Listar Cursos
+                                        2 - Ativar Matrícula
+                                        3 - Trancar Matrícula
+                                        4 - Entrar Turma
+                                        0 - Voltar Menu Inicial
+                                        Escolha a operação desejada:\s""");
                                 switch (scanner.nextInt()) {
                                     case 1:
                                         dadosCursos.listarCursos();
@@ -223,31 +254,31 @@ public class Main {
                                         //trancar matricula - Geovani
                                         break;
                                     case 4:
-                                        //entrar turma - Gabriela
+                                        dadosCursos.escolherCurso(alunoLogado);
                                         break;
                                     case 0:
                                         break LOOPMENUALUNO;
                                 }
                             }
+                            break;
+                            case 2:
+                                dadosAlunos.criarAluno();
+                                break;
+                            case 0:
+                                System.out.println("Voltando ao menu inicial.");
+                                break;
+                            default:
+                                System.out.println("\u001B[31m" + "Opção inválida!" + "\u001B[0m");
+                                break;
                         }
                         break;
-                    case 2:
-                        dadosAlunos.criarAluno();
-                        break;
                     case 0:
-                        System.out.println("Voltando ao menu inicial.");
+                        System.out.println("Sistema encerrado.");
                         break;
                     default:
                         System.out.println("\u001B[31m" + "Opção inválida!" + "\u001B[0m");
                         break;
                 }
-                break;
-            case 0:
-                System.out.println("Sistema encerrado.");
-                break;
-            default:
-                System.out.println("\u001B[31m" + "Opção inválida!" + "\u001B[0m");
-                break;
         }
     }
 }
@@ -259,3 +290,4 @@ public class Main {
 //Turma t = new Turma();
 //Diretor d = new Diretor(1000, "Cesar", 8);
 //Funcionario f = new Funcionario("Andrezza", 2500, 1);
+
