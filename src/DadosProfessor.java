@@ -2,15 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DadosProfessor {
-    private Scanner scanner;
     private ArrayList<Professor> professores = new ArrayList<>();
-
-    public DadosProfessor() {
-    }
-
-    public DadosProfessor(Scanner scanner) {
-        this.scanner = scanner;
-    }
 
     public void adicionarProfessor(Professor professor) {
 
@@ -30,15 +22,15 @@ public class DadosProfessor {
     public int listarEscolherProfessor() {
         listarProfessor();
         System.out.print("Escolha uma opção: ");
-        int escolha = scanner.nextInt();
+        int escolha = ScannerUtil.nextInt();
         return escolha;
     }
     public void criarProfessor() {
         System.out.println("Criar conta de professor:");
         System.out.print  ("Nome: ");
-        String nome = scanner.nextLine();
+        String nome = ScannerUtil.nextLine();
         System.out.print  ("Idade: ");
-        int idade = Integer.parseInt(scanner.nextLine());
+        int idade = Integer.parseInt(ScannerUtil.nextLine());
         System.out.println("Novo professor criado");
 
         adicionarProfessor(new Professor(nome, idade));
@@ -47,7 +39,7 @@ public class DadosProfessor {
     public boolean loginProfessor() {
         for (int i = 0; i < 2; i++) {
             System.out.print("Digite o nome do Professor:");
-            String nomeProfessor = scanner.next();
+            String nomeProfessor = ScannerUtil.nextLine();
             boolean professorEncotrado = professores.stream().anyMatch(professor -> professor.getNome().equals(nomeProfessor));
             if (professorEncotrado) {
                 System.out.println("Bem-vindo " + nomeProfessor);

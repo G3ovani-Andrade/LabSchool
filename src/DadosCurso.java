@@ -2,12 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DadosCurso {
-    private Scanner scanner;
     private ArrayList<Curso> cursos = new ArrayList<>();
-
-    public DadosCurso(Scanner scanner) {
-        this.scanner = scanner;
-    }
 
     public void removerCurso() {
         int escolha = listarEscolherCurso();
@@ -23,7 +18,7 @@ public class DadosCurso {
     public int listarEscolherCurso() {
         listarCursos();
         System.out.print("Escolha uma opção: ");
-        int escolha = scanner.nextInt();
+        int escolha = ScannerUtil.nextInt();
         return escolha;
     }
 
@@ -35,7 +30,7 @@ public class DadosCurso {
     public void criarCurso() {
         System.out.println("Criar novo Curso:");
         System.out.print("Nome do Curso: ");
-        String nomeCurso = scanner.nextLine();
+        String nomeCurso = ScannerUtil.nextLine();
 
         System.out.println("Novo curso criado");
 
@@ -43,11 +38,11 @@ public class DadosCurso {
     }
     public void escolherCurso (Aluno aluno) {
         listarCursos();
-        System.out.println("Escolha um curso pelo númeto:");
-        int escolha = scanner.nextInt();
+        System.out.println("Escolha um curso pelo número:");
+        int escolha = ScannerUtil.nextInt();
 
         if (escolha > 0 && escolha <= cursos.size()) {
-            Curso cursoEscolhido = cursos.get(escolha - 1);
+            Curso cursoEscolhido = cursos.get(escolha);
             aluno.escolherCurso(cursoEscolhido);
             System.out.println(aluno.getNome() + "agora está matriculado em " + cursoEscolhido.getNomeCurso());
 

@@ -2,12 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DadosDiretor {
-    private Scanner scanner;
     private ArrayList<Diretor> diretores = new ArrayList<>();
-
-    public DadosDiretor(Scanner scanner) {
-        this.scanner = scanner;
-    }
 
     public void adicionarDiretor(Diretor diretor) {
         this.diretores.add(diretor);
@@ -27,14 +22,14 @@ public class DadosDiretor {
     public int listarEscolherDiretor() {
         listarDiretor();
         System.out.print("Escolha uma opção: ");
-        int escolha = scanner.nextInt();
+        int escolha = ScannerUtil.nextInt();
         return escolha;
     }
 
     public void criarDiretor() {
         System.out.println("Criar conta de diretor:");
         System.out.print("Nome: ");
-        String nome = scanner.nextLine();
+        String nome = ScannerUtil.nextLine();
         System.out.println("Novo diretor criado");
 
         adicionarDiretor(new Diretor(nome));
@@ -43,7 +38,7 @@ public class DadosDiretor {
     public boolean loginDiretor() {
         for (int i = 0; i < 2; i++) {
             System.out.print("Digite o nome do Diretor:");
-            String nomeDiretor = scanner.next();
+            String nomeDiretor = ScannerUtil.nextLine();
             boolean diretorEncotrado = diretores.stream().anyMatch(diretor -> diretor.getNome().equals(nomeDiretor));
             if (diretorEncotrado) {
                 System.out.println("Bem-vindo " + nomeDiretor);
