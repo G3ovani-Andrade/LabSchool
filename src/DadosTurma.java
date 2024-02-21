@@ -2,13 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DadosTurma {
-    private Scanner scanner;
     private ArrayList<Turma> turmas = new ArrayList<>();
-
-    public DadosTurma(Scanner scanner) {
-        this.scanner = scanner;
-    }
-
 
     public void removerTurma() {
         int escolha = listarEscolherTurma();
@@ -24,7 +18,7 @@ public class DadosTurma {
     public int listarEscolherTurma() {
         listarTurmas();
         System.out.print("Escolha uma opção: ");
-        int escolha = scanner.nextInt();
+        int escolha = ScannerUtil.nextInt();
         return escolha;
     }
 
@@ -36,7 +30,7 @@ public class DadosTurma {
     public void criarTurma() {
         System.out.println("Criar nova Turma:");
         System.out.print("Nome da Turma: ");
-        String nomeTurma = scanner.nextLine();
+        String nomeTurma = ScannerUtil.nextLine();
 
         System.out.println("Nova turma criada");
 

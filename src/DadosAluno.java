@@ -2,21 +2,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DadosAluno {
-    private Scanner scanner;
-    //TODO quando terinar os testes mudar de public static para private
-    public static ArrayList<Aluno> alunos = new ArrayList<>();
-    
-    //TODO pode apagar apenas teste
-    public static void adicionarAluno(  )
-	{
-		alunos.add( new Aluno("geovani",32) );
-	}
-    
-    public DadosAluno(Scanner scanner) {
-        this.scanner = scanner;
-    }
+
+    private ArrayList<Aluno> alunos = new ArrayList<>();
+
 
     public void adicionarAluno(Aluno aluno) {
+
         this.alunos.add(aluno);
     }
 
@@ -26,8 +17,6 @@ public class DadosAluno {
         this.alunos.remove(alunos.get(escolha));
     }
 
-
-    //Criei com o objetivo de que remover o aluno apenas da turma é diferente de remover o aluno total
     public void removerAlunoTurma() {
         int escolha = listarEscolherAlunoTurma();
         this.alunos.remove(alunos.get(escolha));
@@ -42,12 +31,10 @@ public class DadosAluno {
     public int listarEscolherAluno() {
         listarAluno();
         System.out.print("Escolha uma opção: ");
-        int escolha = scanner.nextInt();
+        int escolha = ScannerUtil.nextInt();
         return escolha;
     }
 
-
-    //Criei com o objetivo de que remover o aluno apenas da turma é diferente de remover o aluno total
     public void listarAlunoTurma() {
         for (Aluno aluno : alunos) {
             System.out.println(alunos.indexOf(aluno) + " - " + aluno.getNome());
@@ -56,16 +43,16 @@ public class DadosAluno {
     public int listarEscolherAlunoTurma() {
         listarAlunoTurma();
         System.out.print("Escolha uma opção: ");
-        int escolha = scanner.nextInt();
+        int escolha = ScannerUtil.nextInt();
         return escolha;
     }
 
     public void criarAluno() {
         System.out.println("Criar conta de aluno:");
-        System.out.print  ("Nome: ");
-        String nome = scanner.nextLine();
-        System.out.print  ("Idade: ");
-        int idade = Integer.parseInt(scanner.nextLine());
+        System.out.print("Nome: ");
+        String nome = ScannerUtil.nextLine();
+        System.out.print("Idade: ");
+        int idade = Integer.parseInt(ScannerUtil.nextLine());
         System.out.println("Novo aluno criado");
 
         adicionarAluno(new Aluno(nome,idade));
@@ -75,7 +62,7 @@ public class DadosAluno {
         for (int i = 0; i <= 2; i++) {
             Aluno existeAluno = null;
             System.out.print("Digite o nome do aluno:");
-            String nomeAluno = scanner.next();
+            String nomeAluno = ScannerUtil.nextLine();
             for (Aluno aluno : alunos){
                 if (aluno.getNome().equals(nomeAluno)) {
                     existeAluno = aluno;
