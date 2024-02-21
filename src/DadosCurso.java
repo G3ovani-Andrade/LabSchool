@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class DadosCurso {
     private ArrayList<Curso> cursos = new ArrayList<>();
@@ -45,7 +44,6 @@ public class DadosCurso {
             Curso cursoEscolhido = cursos.get(escolha);
             aluno.escolherCurso(cursoEscolhido);
             System.out.println(aluno.getNome() + "agora está matriculado em " + cursoEscolhido.getNomeCurso());
-
         } else {
             System.out.println("Escolha inválida.");
         }

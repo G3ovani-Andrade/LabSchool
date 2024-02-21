@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class DadosProfessor {
     private ArrayList<Professor> professores = new ArrayList<>();
@@ -11,7 +10,7 @@ public class DadosProfessor {
 
     public void removerProfessor() {
         int escolha = listarEscolherProfessor();
-        this.professores.remove(professores.get(escolha));
+        this.professores.remove(escolha);
     }
 
     public void listarProfessor() {
