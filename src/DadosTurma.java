@@ -1,12 +1,11 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class DadosTurma {
     private ArrayList<Turma> turmas = new ArrayList<>();
 
     public void removerTurma() {
         int escolha = listarEscolherTurma();
-        this.turmas.remove(turmas.get(escolha));
+        this.turmas.remove(escolha);
     }
 
     public void listarTurmas() {
@@ -35,5 +34,21 @@ public class DadosTurma {
         System.out.println("Nova turma criada");
 
         adicionarTurma(new Turma(nomeTurma));
+    }
+
+    public void removerAlunoTurma() {
+        System.out.println("Escolha a turma que tera um aluno removido:");
+        int escolhaTurma = listarEscolherTurma();
+        System.out.println("Escolha o aluno que sera removido:");
+        Aluno escolhaAluno = turmas.get(escolhaTurma).listarEscolherAlunosTurma();
+        turmas.get(escolhaTurma).removerAluno(escolhaAluno);
+    }
+
+    public void adicionarAlunoTurma(DadosAluno dadosAluno) {
+        System.out.println("Escolha a turma que tera um aluno adicionado:");
+        int escolhaTurma = listarEscolherTurma();
+        System.out.println("Escolha o aluno que sera adicionado:");
+        int escolhaAluno = dadosAluno.listarEscolherAluno();
+        turmas.get(escolhaTurma).adicionarAluno(dadosAluno.getAlunos().get(escolhaAluno));
     }
 }

@@ -17,6 +17,21 @@ public class Turma {
     }
 
     public Turma(String nomeTurma) {
+        this.nomeTurma = nomeTurma;
+    }
+
+    public void listarAlunosTurma() {
+        System.out.println("Lista de Alunos - " + this.curso.getNomeCurso() + "-" + this.nomeTurma);
+        for (Aluno aluno : listaAlunos) {
+            System.out.println(aluno);
+        }
+    }
+
+    public Aluno listarEscolherAlunosTurma() {
+        listarAlunosTurma();
+        System.out.print("Escolha uma opção: ");
+        int escolha = ScannerUtil.nextInt();
+        return listaAlunos.get(escolha);
     }
 
     @Override
@@ -56,13 +71,6 @@ public class Turma {
         this.curso = curso;
     }
 
-    public void listarAlunos() {
-        System.out.println("Lista de Alunos - " + this.curso.getNomeCurso() + "-" + this.nomeTurma);
-        for (Aluno aluno : listaAlunos) {
-            System.out.println(aluno);
-        }
-    }
-
     public void adicionarAluno(Aluno novoAluno) {
         listaAlunos.add(novoAluno);
     }
@@ -70,6 +78,4 @@ public class Turma {
     public void removerAluno(Aluno aluno){
         listaAlunos.remove(aluno);
     }
-
-
 }

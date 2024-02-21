@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class DadosDiretor {
     private ArrayList<Diretor> diretores = new ArrayList<>();
@@ -10,7 +9,7 @@ public class DadosDiretor {
 
     public void removerDiretor() {
         int escolha = listarEscolherDiretor();
-        this.diretores.remove(diretores.get(escolha));
+        this.diretores.remove(escolha);
     }
 
     public void listarDiretor() {

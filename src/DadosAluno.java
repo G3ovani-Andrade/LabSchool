@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class DadosAluno {
 
@@ -7,19 +6,13 @@ public class DadosAluno {
 
 
     public void adicionarAluno(Aluno aluno) {
-
         this.alunos.add(aluno);
     }
 
 
     public void removerAluno() {
         int escolha = listarEscolherAluno();
-        this.alunos.remove(alunos.get(escolha));
-    }
-
-    public void removerAlunoTurma() {
-        int escolha = listarEscolherAlunoTurma();
-        this.alunos.remove(alunos.get(escolha));
+        this.alunos.remove(escolha);
     }
 
 
@@ -30,18 +23,6 @@ public class DadosAluno {
     }
     public int listarEscolherAluno() {
         listarAluno();
-        System.out.print("Escolha uma opção: ");
-        int escolha = ScannerUtil.nextInt();
-        return escolha;
-    }
-
-    public void listarAlunoTurma() {
-        for (Aluno aluno : alunos) {
-            System.out.println(alunos.indexOf(aluno) + " - " + aluno.getNome());
-        }
-    }
-    public int listarEscolherAlunoTurma() {
-        listarAlunoTurma();
         System.out.print("Escolha uma opção: ");
         int escolha = ScannerUtil.nextInt();
         return escolha;
@@ -79,10 +60,7 @@ public class DadosAluno {
         return null;
     }
 
-    public DadosAluno() {
-    }
-
-    public ArrayList<Aluno> getAluno() {
+    public ArrayList<Aluno> getAlunos() {
         return alunos;
     }
 
