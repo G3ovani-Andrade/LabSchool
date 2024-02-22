@@ -18,7 +18,11 @@ public class DadosCurso {
         listarCursos();
         System.out.print("Escolha uma opção: ");
         int escolha = ScannerUtil.nextInt();
-        return escolha;
+        if(escolha < cursos.size()){
+            return escolha;
+        }
+        System.out.println("Escolha inválida!");
+        return listarEscolherCurso();
     }
 
     public void adicionarCurso(Curso nomeCurso) {

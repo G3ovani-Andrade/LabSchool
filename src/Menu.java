@@ -22,6 +22,8 @@ public class Menu {
                 break;
             case 0:
                 return;
+            default:
+                System.out.println("Escolha uma opção válida!");
         }
         Menu.menuProfessor(dadosAlunos, dadosTurma);
     }
@@ -53,6 +55,8 @@ public class Menu {
                 case 0:
                     System.out.println("Voltando ao menu inicial.");
                     return;
+                default:
+                    System.out.println("Escolha uma opção válida!");
             }
             Menu.menuAluno(dadosCursos, alunoLogado);
     }
@@ -83,6 +87,8 @@ public class Menu {
                 break;
             case 0:
                 return;
+            default:
+                System.out.println("Escolha uma opção válida!");
         }
         Menu.menuDiretor(dadosProfessores, dadosTurmas, dadosAlunos, dadosCursos, dadosDiretor);
     }
@@ -117,7 +123,7 @@ public class Menu {
             case 0:
                 break;
             default:
-                System.out.println("Opção inválida");
+                System.out.println("Escolha uma opção válida!");
         }
     }
 
@@ -152,7 +158,7 @@ public class Menu {
             case 0:
                 break;
             default:
-                System.out.println("Opção inválida");
+                System.out.println("Escolha uma opção válida!");
         }
     }
 
@@ -187,7 +193,7 @@ public class Menu {
             case 0:
                 break;
             default:
-                System.out.println("Opção inválida");
+                System.out.println("Escolha uma opção válida!");
         }
     }
 
