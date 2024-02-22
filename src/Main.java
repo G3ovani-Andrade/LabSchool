@@ -6,6 +6,7 @@ public class Main {
         DadosAluno dadosAlunos = new DadosAluno();
         DadosProfessor dadosProfessores = new DadosProfessor();
         DadosDiretor dadosDiretor = new DadosDiretor();
+        Menu.padrao(dadosTurmas, dadosCursos, dadosAlunos, dadosProfessores, dadosDiretor);
 
         SISTEMA:
         while (true) {

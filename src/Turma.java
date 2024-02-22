@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Turma {
     private String nomeTurma;
-    private List<Aluno> listaAlunos;
+    private List<Aluno> listaAlunos = new ArrayList<>();
     private int ano;
     private Curso curso;
 
@@ -16,8 +17,9 @@ public class Turma {
     public Turma() {
     }
 
-    public Turma(String nomeTurma) {
+    public Turma(String nomeTurma, Curso curso) {
         this.nomeTurma = nomeTurma;
+        this.curso = curso;
     }
 
     public void listarAlunosTurma() {
@@ -28,7 +30,9 @@ public class Turma {
     }
 
     public Aluno listarEscolherAlunosTurma() {
-        listarAlunosTurma();
+        for (Aluno aluno : listaAlunos) {
+            System.out.println(listaAlunos.indexOf(aluno) + " - " + aluno.getNome());
+        }
         System.out.print("Escolha uma opção: ");
         int escolha = ScannerUtil.nextInt();
         return listaAlunos.get(escolha);
@@ -38,6 +42,15 @@ public class Turma {
     public String toString() {
         return "Nome da Turma: " + nomeTurma + "\nListaAlunos: " + listaAlunos + "\nAno: " + ano + "\nCurso: " + curso;
     }
+
+    public void adicionarAluno(Aluno novoAluno) {
+        listaAlunos.add(novoAluno);
+    }
+
+    public void removerAluno(Aluno aluno){
+        listaAlunos.remove(aluno);
+    }
+
 
     public String getNomeTurma() {
         return nomeTurma;
@@ -69,13 +82,5 @@ public class Turma {
 
     public void setCurso(Curso curso) {
         this.curso = curso;
-    }
-
-    public void adicionarAluno(Aluno novoAluno) {
-        listaAlunos.add(novoAluno);
-    }
-
-    public void removerAluno(Aluno aluno){
-        listaAlunos.remove(aluno);
     }
 }

@@ -34,7 +34,6 @@ public class Funcionario implements IFuncionario{
         for (CargoFuncionario cargo : CargoFuncionario.values()){
             System.out.println(cargo);
         }
-
     }
 
     @Override

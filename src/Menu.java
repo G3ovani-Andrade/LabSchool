@@ -109,7 +109,7 @@ public class Menu {
                 dadosCursos.criarCurso();
                 break;
             case 4:
-                dadosTurmas.criarTurma();
+                dadosTurmas.criarTurma(dadosCursos);
                 break;
             case 5:
                 dadosDiretor.criarDiretor();
@@ -190,4 +190,23 @@ public class Menu {
                 System.out.println("Opção inválida");
         }
     }
+
+    public static void padrao (DadosTurma dadosTurmas, DadosCurso dadosCursos, DadosAluno dadosAlunos, DadosProfessor dadosProfessores, DadosDiretor dadosDiretor) {
+        Aluno a = new Aluno("arthur", 17);
+        Aluno b = new Aluno("gabriela", 22);
+        Diretor c = new Diretor("suene");
+        Professor d = new Professor("geovani", 32);
+        Professor e = new Professor("felipe", 43);
+        Curso f = new Curso("FULLSTACK");
+        Turma g = new Turma("EDUCATION", f);
+
+        dadosAlunos.adicionarAluno(a);
+        dadosAlunos.adicionarAluno(b);
+        dadosDiretor.adicionarDiretor(c);
+        dadosProfessores.adicionarProfessor(d);
+        dadosProfessores.adicionarProfessor(e);
+        dadosCursos.adicionarCurso(f);
+        dadosTurmas.adicionarTurma(g);
+    }
+
 }

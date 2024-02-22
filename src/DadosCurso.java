@@ -22,7 +22,6 @@ public class DadosCurso {
     }
 
     public void adicionarCurso(Curso nomeCurso) {
-
         this.cursos.add(nomeCurso);
     }
 
@@ -47,5 +46,9 @@ public class DadosCurso {
         } else {
             System.out.println("Escolha inválida.");
         }
+    }
+
+    public ArrayList<Curso> getCursos() {
+        return cursos;
     }
 }

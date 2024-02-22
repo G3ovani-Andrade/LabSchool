@@ -1,11 +1,6 @@
 public class Professor extends Funcionario{
     private int idade;
 
-    public Professor(String nome, int idade, int tempoCargo,float salario) {
-        super(nome, salario, tempoCargo);
-        this.idade = idade;
-    }
-
     public Professor(String nome, int idade) {
         super(nome, 2886.24f);
         this.idade = idade;
