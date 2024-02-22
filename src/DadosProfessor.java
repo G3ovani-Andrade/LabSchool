@@ -21,7 +21,11 @@ public class DadosProfessor {
         listarProfessor();
         System.out.print("Escolha uma opção: ");
         int escolha = ScannerUtil.nextInt();
-        return escolha;
+        if(escolha < professores.size()){
+            return escolha;
+        }
+        System.out.println("Escolha inválida!");
+        return listarEscolherProfessor();
     }
     public void criarProfessor() {
         System.out.println("Criar conta de professor:");

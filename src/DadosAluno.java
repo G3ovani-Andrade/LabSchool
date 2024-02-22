@@ -24,7 +24,11 @@ public class DadosAluno {
         listarAluno();
         System.out.print("Escolha uma opção: ");
         int escolha = ScannerUtil.nextInt();
-        return escolha;
+        if(escolha < alunos.size()){
+            return escolha;
+        }
+        System.out.println("Escolha inválida");
+        return listarEscolherAluno();
     }
 
     public void criarAluno() {

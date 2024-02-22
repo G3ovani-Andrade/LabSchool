@@ -18,7 +18,10 @@ public class DadosTurma {
         listarTurmas();
         System.out.print("Escolha uma opção: ");
         int escolha = ScannerUtil.nextInt();
-        return escolha;
+        if(escolha < turmas.size()){
+            return escolha;
+        }
+        return listarEscolherTurma();
     }
 
     public void adicionarTurma(Turma nomeTurma) {

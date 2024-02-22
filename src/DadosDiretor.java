@@ -22,7 +22,11 @@ public class DadosDiretor {
         listarDiretor();
         System.out.print("Escolha uma opção: ");
         int escolha = ScannerUtil.nextInt();
-        return escolha;
+        if(escolha < diretores.size()){
+            return escolha;
+        }
+        System.out.println("Escolha inválida!");
+        return listarEscolherDiretor();
     }
 
     public void criarDiretor() {
