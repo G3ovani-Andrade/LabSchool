@@ -3,8 +3,6 @@ public class Aluno {
     private int idade;
     private StatusMatricula statusMatricula;
 
-    public Aluno() {
-    }
     public Aluno(String nome, int idade) {
         this.nome = nome;
         this.idade = idade;
@@ -42,13 +40,11 @@ public class Aluno {
     	}
     }
 
-
     @Override
     public String toString() {
         return "Nome: " + nome + "\nIdade: " + idade +
                 "\nStatus da Matricula: " + statusMatricula;
     }
-
     
     public String getNome() {
         return nome;

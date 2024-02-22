@@ -4,7 +4,6 @@ public class DadosProfessor {
     private ArrayList<Professor> professores = new ArrayList<>();
 
     public void adicionarProfessor(Professor professor) {
-
         this.professores.add(professor);
     }
 

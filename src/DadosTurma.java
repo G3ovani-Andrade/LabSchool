@@ -26,14 +26,16 @@ public class DadosTurma {
         this.turmas.add(nomeTurma);
     }
 
-    public void criarTurma() {
+    public void criarTurma(DadosCurso dadosCurso) {
         System.out.println("Criar nova Turma:");
         System.out.print("Nome da Turma: ");
         String nomeTurma = ScannerUtil.nextLine();
+        System.out.println("Escolha o curso que sera vinculado a essa turma:");
+        Curso curso = dadosCurso.getCursos().get(dadosCurso.listarEscolherCurso());
 
         System.out.println("Nova turma criada");
 
-        adicionarTurma(new Turma(nomeTurma));
+        adicionarTurma(new Turma(nomeTurma, curso));
     }
 
     public void removerAlunoTurma() {
